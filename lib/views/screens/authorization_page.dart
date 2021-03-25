@@ -67,7 +67,6 @@ class AuthorizationScreen extends StatelessWidget {
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       fillColor: Colors.grey.shade200,
-                    
                       hintText: '******',
                       hintStyle: TextStyle(),
                       contentPadding: EdgeInsets.all(16),
@@ -79,7 +78,7 @@ class AuthorizationScreen extends StatelessWidget {
                   SizedBox(height: 20),
                   TextButton(
                     onPressed: () {
-                      Get.to(()=>HomeScreen());
+                      Get.to(() => HomeScreen());
                     },
                     child: Text(
                       'Sign In',
@@ -94,13 +93,13 @@ class AuthorizationScreen extends StatelessWidget {
                         backgroundColor:
                             MaterialStateProperty.all<Color>(primaryColor),
                         padding: MaterialStateProperty.all(EdgeInsets.all(15)),
-                        minimumSize:
-                            MaterialStateProperty.all(Size(double.infinity, 20))),
+                        minimumSize: MaterialStateProperty.all(
+                            Size(double.infinity, 20))),
                   ),
                   SizedBox(height: 30),
                   Center(
                     child: Text(
-                      'Forgot your PIN or this isn\'nt you',
+                      'Forgot your PIN or this isn\'t you',
                       style: GoogleFonts.muli(
                         color: Colors.black,
                         fontSize: 15,
@@ -118,7 +117,6 @@ class AuthorizationScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  
                 ],
               ),
             ),
