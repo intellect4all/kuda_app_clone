@@ -28,6 +28,7 @@ dependencies:
   line_awesome_flutter: 
   carousel_slider: ^2.3.1
   flutter_svg:
+  google_fonts:
 
 
 
