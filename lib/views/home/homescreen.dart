@@ -3,12 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kuda_app_clone/services/data.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
@@ -203,8 +205,84 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 10),
+                        child: Text('25 Mar 2021',),
+                      ),
+                      Column(
+                        children: Data()
+                            .today
+                            .map(
+                              (transaction) => Container(
+                                height: 80,
+                                padding: EdgeInsets.all(10),
+                                margin: EdgeInsets.symmetric(vertical: 1.5),
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.shade100,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                        color: accentColor,
+                                        borderRadius: BorderRadius.circular(25),
+                                      ),
+                                    ),
+                                    SizedBox(width: 15),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          transaction.amount < 0
+                                              ? '${transaction.recipient}'
+                                              : '${transaction.sender}',
+                                          style: GoogleFonts.muli(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SizedBox(height: 5),
+                                        Text(
+                                          '${transaction.time}',
+                                          style: GoogleFonts.muli(
+                                            color: Colors.grey.shade600,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 13,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Expanded(
+                                      child: SizedBox.expand(),
+                                    ),
+                                    Text(
+                                      transaction.amount < 0
+                                          ? '${transaction.amount.abs()}'
+                                          : '+${transaction.amount}',
+                                      style: GoogleFonts.muli(
+                                        color: transaction.amount < 0 ? Colors.black : Colors.green,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w900,
+                                      ),
+                                      textAlign: TextAlign.right,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      )
                     ],
                   ),
                 ),
