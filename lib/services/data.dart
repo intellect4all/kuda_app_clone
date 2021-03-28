@@ -1,8 +1,11 @@
 // this is a simulated raw data
 
+import 'package:flutter/material.dart';
 import 'package:kuda_app_clone/models/transaction.dart';
 
 class Data {
+  
+
   var today = <Transaction>[
     Transaction(
         amount: -1000.00,

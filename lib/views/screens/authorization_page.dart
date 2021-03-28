@@ -22,10 +22,11 @@ class AuthorizationScreen extends StatelessWidget {
                   Center(
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(100)),
-                      child: Image.network(
-                        'https://media-exp1.licdn.com/dms/image/C4E03AQHr-ORBFQDzdg/profile-displayphoto-shrink_200_200/0/1600172127782?e=1619049600&v=beta&t=r9ExIryzGcE6OYAHXuh8hKL6dNazK4Lqw9jh8KstYfc',
+                      child: Image.asset(
+                        'assets/images/resized-1.jpg',
                         height: 100,
                         width: 100,
+                        fit: BoxFit.fill,
                       ),
                     ),
                   ),

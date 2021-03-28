@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Kuda App Clone',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        
+        visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.blue,
         primaryColor: primaryColor,
         accentColor: accentColor,
