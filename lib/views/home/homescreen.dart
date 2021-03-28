@@ -229,7 +229,7 @@ class HomeScreen extends StatelessWidget {
                             .map(
                               (transaction) => Container(
                                 height: 70,
-                                padding: EdgeInsets.symmetric(horizontal:29, vertical:10),
+                                padding: EdgeInsets.symmetric(horizontal:20, vertical:10),
                                 margin: EdgeInsets.symmetric(vertical: 1.5),
                                 width: double.infinity,
                                 decoration: BoxDecoration(
@@ -316,7 +316,7 @@ class HomeScreen extends StatelessWidget {
                             .map(
                               (transaction) => Container(
                                 height: 70,
-                                padding: EdgeInsets.symmetric(horizontal:29, vertical:10),
+                                padding: EdgeInsets.symmetric(horizontal:20, vertical:10),
                                 margin: EdgeInsets.symmetric(vertical: 1.5),
                                 width: double.infinity,
                                 decoration: BoxDecoration(
@@ -403,7 +403,7 @@ class HomeScreen extends StatelessWidget {
                             .map(
                               (transaction) => Container(
                                 height: 70,
-                                padding: EdgeInsets.symmetric(horizontal:29, vertical:10),
+                                padding: EdgeInsets.symmetric(horizontal:20, vertical:10),
                                 margin: EdgeInsets.symmetric(vertical: 1.5),
                                 width: double.infinity,
                                 decoration: BoxDecoration(
