@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kuda_app_clone/models/transaction.dart';
 import 'package:kuda_app_clone/services/data.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
+import 'package:kuda_app_clone/views/payments_page/payments_page.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.grey.shade200,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top:20),
+          padding: const EdgeInsets.only(top: 20),
           child: Column(
             children: [
               Container(
@@ -41,11 +42,7 @@ class HomeScreen extends StatelessWidget {
                               SizedBox(width: 10),
                               Text(
                                 'Hi, Abdul-Jemeel',
-                                style: GoogleFonts.muli(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w900,
-                                ),
+                                style: boldTextStyle,
                               ),
                             ],
                           ),
@@ -229,7 +226,8 @@ class HomeScreen extends StatelessWidget {
                             .map(
                               (transaction) => Container(
                                 height: 70,
-                                padding: EdgeInsets.symmetric(horizontal:20, vertical:10),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
                                 margin: EdgeInsets.symmetric(vertical: 1.5),
                                 width: double.infinity,
                                 decoration: BoxDecoration(
@@ -270,11 +268,7 @@ class HomeScreen extends StatelessWidget {
                                         SizedBox(height: 5),
                                         Text(
                                           '${transaction.time}',
-                                          style: GoogleFonts.muli(
-                                            color: Colors.grey.shade600,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                          ),
+                                          style: subTitleTextStyle,
                                         ),
                                       ],
                                     ),
@@ -316,7 +310,8 @@ class HomeScreen extends StatelessWidget {
                             .map(
                               (transaction) => Container(
                                 height: 70,
-                                padding: EdgeInsets.symmetric(horizontal:20, vertical:10),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
                                 margin: EdgeInsets.symmetric(vertical: 1.5),
                                 width: double.infinity,
                                 decoration: BoxDecoration(
@@ -403,7 +398,8 @@ class HomeScreen extends StatelessWidget {
                             .map(
                               (transaction) => Container(
                                 height: 70,
-                                padding: EdgeInsets.symmetric(horizontal:20, vertical:10),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
                                 margin: EdgeInsets.symmetric(vertical: 1.5),
                                 width: double.infinity,
                                 decoration: BoxDecoration(
@@ -510,20 +506,25 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-            Column(
-              children: [
-                Icon(
-                  LineAwesomeIcons.money_bill,
-                  size: 30,
-                  color: primaryColor.withOpacity(0.5),
-                ),
-                Text(
-                  'Payments',
-                  style: GoogleFonts.muli(
-                    fontSize: 10,
+            InkWell(
+              onTap: (){
+                Get.to(()=> PaymentScreen());
+              },
+              child: Column(
+                children: [
+                  Icon(
+                    LineAwesomeIcons.money_bill,
+                    size: 30,
+                    color: primaryColor.withOpacity(0.5),
                   ),
-                )
-              ],
+                  Text(
+                    'Payments',
+                    style: GoogleFonts.muli(
+                      fontSize: 10,
+                    ),
+                  )
+                ],
+              ),
             ),
             Column(
               children: [
