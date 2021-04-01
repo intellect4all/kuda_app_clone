@@ -20,31 +20,32 @@ class PaymentActionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 1.5,
+      elevation: 1,
       child: InkWell(
         onTap: action,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+          padding: const EdgeInsets.fromLTRB(22, 8, 15, 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 height: 40,
-                width: 45,
+                width: 40,
                 child: Stack(
                   children: [
                     Positioned(
                       left: 4,
                       top: 0,
                       child: Container(
-                        height: 35,
-                        width: 30,
+                        height: 30,
+                        width: 25,
                         decoration: BoxDecoration(
                           color: accentColor.withOpacity(0.3),
                           border: Border.all(
                             color: primaryColor.withOpacity(0.3),
                             width: 1.5,
                           ),
+                          borderRadius: BorderRadius.circular(4),
                         ),
                       ),
                     ),
@@ -53,14 +54,15 @@ class PaymentActionTile extends StatelessWidget {
                       top: 4,
                       child: Container(
                         padding: EdgeInsets.all(3),
-                        height: 35,
-                        width: 30,
+                        height: 30,
+                        width: 25,
                         decoration: BoxDecoration(
                           color: accentColor,
                           border: Border.all(
                             color: primaryColor,
                             width: 1.5,
                           ),
+                          borderRadius: BorderRadius.circular(4),
                         ),
                         child: Icon(
                           icon,
@@ -71,7 +73,7 @@ class PaymentActionTile extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(width: 15),
+              SizedBox(width: 10),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,7 +100,8 @@ class PaymentActionTile extends StatelessWidget {
               ),
               Icon(
                 Icons.chevron_right_outlined,
-                size: 35,
+                size: 30,
+                color: primaryColor,
               ),
             ],
           ),
