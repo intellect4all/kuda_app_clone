@@ -1,11 +1,10 @@
 // this is a simulated raw data
 
 import 'package:flutter/material.dart';
+import 'package:kuda_app_clone/models/beneficiary.dart';
 import 'package:kuda_app_clone/models/transaction.dart';
 
 class Data {
-  
-
   var today = <Transaction>[
     Transaction(
         amount: -1000.00,
@@ -67,5 +66,26 @@ class Data {
         description: 'FLUTTERWAVE TECHNOLO RI RING',
         senderBank: 'Unknown Bank',
         date: '22 Mar, 2021'),
+  ];
+
+  var beneficiaries = [
+    Beneficiary(
+      name: 'Sleek',
+      bank: 'Kuda',
+      accountNumber: '1100595351',
+    ),
+    Beneficiary(
+      name: 'My Polaris',
+      bank: 'GTBank',
+      accountNumber: '0408129724',
+    ),
+    Beneficiary(
+        name: 'Dola Bimbola',
+        bank: 'First Bank of Nigeria',
+        accountNumber: '3067942537'),
+    Beneficiary(
+        name: 'Tosin Peter',
+        bank: 'United Bank of Africa',
+        accountNumber: '2149255327'),
   ];
 }
