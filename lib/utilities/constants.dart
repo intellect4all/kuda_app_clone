@@ -14,9 +14,8 @@ var boldTextStyle = GoogleFonts.muli(
   fontWeight: FontWeight.w900,
 );
 
-
 var subTitleTextStyle = GoogleFonts.muli(
-                                            color: Colors.grey.shade600,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                          );
+  color: Colors.grey.shade600,
+  fontWeight: FontWeight.w500,
+  fontSize: 12,
+);
