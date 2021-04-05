@@ -5,6 +5,12 @@ import 'package:kuda_app_clone/models/beneficiary.dart';
 import 'package:kuda_app_clone/models/transaction.dart';
 
 class Data {
+  Map data = <String, String>{
+    "Kuda": 'assets/images/kuda.jpg',
+    "GTBank Plc": 'assets/images/GTBank_logo.png',
+    "United Bank for Africa": 'assets/images/acceleres.png',
+    "Unknown Bank": 'assets/images/unknown.png',
+  };
   var today = <Transaction>[
     Transaction(
         amount: -1000.00,
@@ -76,16 +82,26 @@ class Data {
     ),
     Beneficiary(
       name: 'My Polaris',
-      bank: 'GTBank',
+      bank: 'GTBank Plc',
       accountNumber: '0408129724',
     ),
     Beneficiary(
         name: 'Dola Bimbola',
-        bank: 'First Bank of Nigeria',
+        bank: 'United Bank of Africa',
         accountNumber: '3067942537'),
     Beneficiary(
         name: 'Tosin Peter',
         bank: 'United Bank of Africa',
         accountNumber: '2149255327'),
+        Beneficiary(
+      name: 'Hedge',
+      bank: 'Kuda',
+      accountNumber: '1100595351',
+    ),
+    Beneficiary(
+      name: 'Mumeen',
+      bank: 'GTBank Plc',
+      accountNumber: '0408129724',
+    ),
   ];
 }
