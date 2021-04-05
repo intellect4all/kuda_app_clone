@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kuda_app_clone/models/transaction.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
 import 'package:kuda_app_clone/views/components/return_bankImage.dart';
+import 'package:string_extensions/string_extensions.dart';
 
 class RecentTransactionCard extends StatelessWidget {
   const RecentTransactionCard({
@@ -34,12 +35,12 @@ class RecentTransactionCard extends StatelessWidget {
           SizedBox(height: 10),
           Text(
             transaction.amount < 0
-                ? transaction.recipient ?? 'reciepient null'
-                : transaction.sender ?? 'null',
+                ? transaction.recipient.toTitleCase() ?? 'reciepient null'
+                : transaction.sender.toTitleCase() ?? 'null',
             maxLines: 2,
             softWrap: true,
             textAlign: TextAlign.center,
-            style: subTitleTextStyle,
+            style: subTitleTextStyle.copyWith(fontSize:11),
           )
         ],
       ),
