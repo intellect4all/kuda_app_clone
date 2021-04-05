@@ -81,19 +81,19 @@ class Data {
       accountNumber: '1100595351',
     ),
     Beneficiary(
-      name: 'My Polaris',
-      bank: 'GTBank Plc',
-      accountNumber: '0408129724',
-    ),
-    Beneficiary(
         name: 'Dola Bimbola',
         bank: 'United Bank of Africa',
         accountNumber: '3067942537'),
     Beneficiary(
+      name: 'My GTB',
+      bank: 'GTBank Plc',
+      accountNumber: '0408129724',
+    ),
+    Beneficiary(
         name: 'Tosin Peter',
         bank: 'United Bank of Africa',
         accountNumber: '2149255327'),
-        Beneficiary(
+    Beneficiary(
       name: 'Hedge',
       bank: 'Kuda',
       accountNumber: '1100595351',

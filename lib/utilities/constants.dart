@@ -15,7 +15,17 @@ var boldTextStyle = GoogleFonts.muli(
 );
 
 var subTitleTextStyle = GoogleFonts.muli(
-  color: Colors.grey.shade600,
-  fontWeight: FontWeight.w500,
+  color: Colors.black,
+  // fontWeight: FontWeight.w500,
+  fontSize: 11,
+);
+
+var labelTextStyle = GoogleFonts.muli(
+  color: Colors.black,
   fontSize: 12,
+);
+
+var hintTextStyle = GoogleFonts.muli(
+  fontSize: 18,
+  color: Colors.grey.shade500,
 );

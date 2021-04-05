@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:kuda_app_clone/models/transaction.dart';
 import 'package:kuda_app_clone/services/data.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
+import 'package:kuda_app_clone/views/components/return_bankImage.dart';
 import 'package:kuda_app_clone/views/payments_page/payments_page.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
@@ -245,7 +246,7 @@ class HomeScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(25),
                                       ),
                                       child: Center(
-                                        child: _getwidget(transaction),
+                                        child: getBankImageAvatar(transaction, height: 30, width:30),
                                       ),
                                     ),
                                     SizedBox(width: 15),
@@ -329,7 +330,7 @@ class HomeScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(25),
                                       ),
                                       child: Center(
-                                        child: _getwidget(transaction),
+                                        child: getBankImageAvatar(transaction, height: 30, width:30),
                                       ),
                                     ),
                                     SizedBox(width: 15),
@@ -417,7 +418,7 @@ class HomeScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(25),
                                       ),
                                       child: Center(
-                                        child: _getwidget(transaction),
+                                        child: getBankImageAvatar(transaction, height: 30, width:30),
                                       ),
                                     ),
                                     SizedBox(width: 15),
@@ -577,32 +578,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _getwidget(Transaction transaction) {
-    Map data = <String, String>{
-      "Kuda": 'assets/images/kuda.jpg',
-      "GTBank Plc": 'assets/images/GTBank_logo.png',
-      "United Bank for Africa": 'assets/images/acceleres.png',
-      "Unknown Bank": 'assets/images/unknown.png',
-    };
-
-    if (transaction.amount < 0) {
-      var d = transaction.recipientBank;
-      print('recipie');
-      print(d);
-      String image = data[d];
-      print(image);
-      return ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: Image.asset(image, fit: BoxFit.fill, height: 30, width: 30));
-    } else {
-      var d = transaction.senderBank;
-      print('sender');
-      print('sender bank: $d');
-      String image = data[d];
-      print(image);
-      return ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: Image.asset(image, fit: BoxFit.fill, height: 30, width: 30));
-    }
-  }
 }
