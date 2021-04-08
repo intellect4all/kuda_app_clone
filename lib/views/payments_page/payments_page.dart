@@ -6,7 +6,9 @@ import 'package:kuda_app_clone/services/data.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
 import 'package:kuda_app_clone/views/payments_page/buy_airtime_screen.dart';
 import 'package:kuda_app_clone/views/payments_page/pay_bill_screen.dart';
+import 'package:kuda_app_clone/views/payments_page/payment_link_screen.dart';
 import 'package:kuda_app_clone/views/payments_page/send_money_screen.dart';
+import 'package:kuda_app_clone/views/payments_page/web_payment_screen.dart';
 import 'package:kuda_app_clone/views/payments_page/widgets/payment_action_tile.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:string_extensions/string_extensions.dart';
@@ -163,13 +165,17 @@ class PaymentScreen extends StatelessWidget {
                           title: 'Payment Link',
                           subtitle: 'Send money with a simple link.',
                           icon: Icons.link,
-                          action: () {}),
+                          action: () {
+                            Get.to(()=>PaymentLinkScreen());
+                          }),
                       SizedBox(height: 3),
                       PaymentActionTile(
                         title: 'web payment',
                         subtitle: 'pay online without your card.',
                         icon: Icons.web,
-                        action: () {},
+                        action: () {
+                          Get.to(()=>WebPaymentScreen());
+                        },
                       ),
                       SizedBox(height: 40),
                       Row(
