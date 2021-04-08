@@ -7,6 +7,7 @@ import 'package:kuda_app_clone/models/transaction.dart';
 import 'package:kuda_app_clone/services/data.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
 import 'package:kuda_app_clone/views/components/return_bankImage.dart';
+import 'package:kuda_app_clone/views/more_screen/more_screen.dart';
 import 'package:kuda_app_clone/views/payments_page/payments_page.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
@@ -560,20 +561,23 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-            Column(
-              children: [
-                Icon(
-                  LineAwesomeIcons.clipboard_with_check,
-                  size: 30,
-                  color: primaryColor.withOpacity(0.5),
-                ),
-                Text(
-                  'More',
-                  style: GoogleFonts.muli(
-                    fontSize: 10,
+            InkWell(
+              onTap: ()=>Get.to(()=>MoreScreen()),
+              child: Column(
+                children: [
+                  Icon(
+                    LineAwesomeIcons.clipboard_with_check,
+                    size: 30,
+                    color: primaryColor.withOpacity(0.5),
                   ),
-                )
-              ],
+                  Text(
+                    'More',
+                    style: GoogleFonts.muli(
+                      fontSize: 10,
+                    ),
+                  )
+                ],
+              ),
             ),
           ],
         ),
