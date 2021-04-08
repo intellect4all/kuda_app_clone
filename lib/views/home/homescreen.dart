@@ -246,7 +246,8 @@ class HomeScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(25),
                                       ),
                                       child: Center(
-                                        child: getBankImageAvatar(transaction, height: 30, width:30),
+                                        child: getBankImageAvatar(transaction,
+                                            height: 30, width: 30),
                                       ),
                                     ),
                                     SizedBox(width: 15),
@@ -330,7 +331,8 @@ class HomeScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(25),
                                       ),
                                       child: Center(
-                                        child: getBankImageAvatar(transaction, height: 30, width:30),
+                                        child: getBankImageAvatar(transaction,
+                                            height: 30, width: 30),
                                       ),
                                     ),
                                     SizedBox(width: 15),
@@ -418,7 +420,8 @@ class HomeScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(25),
                                       ),
                                       child: Center(
-                                        child: getBankImageAvatar(transaction, height: 30, width:30),
+                                        child: getBankImageAvatar(transaction,
+                                            height: 30, width: 30),
                                       ),
                                     ),
                                     SizedBox(width: 15),
@@ -508,8 +511,8 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             InkWell(
-              onTap: (){
-                Get.to(()=> PaymentScreen());
+              onTap: () {
+                Get.to(() => PaymentScreen());
               },
               child: Column(
                 children: [
@@ -577,5 +580,4 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-
 }

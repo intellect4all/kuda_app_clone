@@ -5,6 +5,7 @@ import 'package:kuda_app_clone/controllers/paymentScreenController.dart';
 import 'package:kuda_app_clone/services/data.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
 import 'package:kuda_app_clone/views/payments_page/buy_airtime_screen.dart';
+import 'package:kuda_app_clone/views/payments_page/pay_bill_screen.dart';
 import 'package:kuda_app_clone/views/payments_page/send_money_screen.dart';
 import 'package:kuda_app_clone/views/payments_page/widgets/payment_action_tile.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -139,7 +140,7 @@ class PaymentScreen extends StatelessWidget {
                           subtitle: 'Free transfers to all banks.',
                           icon: Icons.mobile_off_outlined,
                           action: () {
-                            Get.to(()=> SendMoneyScreen());
+                            Get.to(() => SendMoneyScreen());
                           }),
                       SizedBox(height: 3),
                       PaymentActionTile(
@@ -147,14 +148,16 @@ class PaymentScreen extends StatelessWidget {
                           subtitle: 'Recharge any phone easily.',
                           icon: Icons.mobile_friendly,
                           action: () {
-                            Get.to(()=> BuyAirtimeScreen());
+                            Get.to(() => BuyAirtimeScreen());
                           }),
                       SizedBox(height: 3),
                       PaymentActionTile(
                           title: 'Pay A Bill',
                           subtitle: 'Take care of your essentials.',
                           icon: Icons.bookmark,
-                          action: () {}),
+                          action: () {
+                            Get.to(() => PayBillScreen());
+                          }),
                       SizedBox(height: 3),
                       PaymentActionTile(
                           title: 'Payment Link',
