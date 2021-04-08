@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kuda_app_clone/models/beneficiary.dart';
 import 'package:kuda_app_clone/services/data.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
@@ -66,40 +67,6 @@ class BuyAirtimeScreen extends StatelessWidget {
                 ),
               ),
               Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(3),
-                      boxShadow: [
-                        BoxShadow(
-                          color: primaryColor.withOpacity(0.4),
-                          blurRadius: 1.5,
-                        )
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Free transfers to other banks',
-                          style: subTitleTextStyle.copyWith(
-                              letterSpacing: 0.5, color: primaryColor),
-                        ),
-                        SizedBox(width: 20),
-                        Text(
-                          '20',
-                          style: boldTextStyle.copyWith(color: primaryColor),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
               Column(
                 children: [
                   Padding(
@@ -112,7 +79,7 @@ class BuyAirtimeScreen extends StatelessWidget {
                           size: 18,
                         ),
                         SizedBox(width: 5),
-                        Text('Beneficiaries', style: subTitleTextStyle),
+                        Text('Most Recent', style: subTitleTextStyle),
                       ],
                     ),
                   ),
@@ -125,69 +92,63 @@ class BuyAirtimeScreen extends StatelessWidget {
                           height: 95,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: Data().beneficiaries.length,
+                            itemCount: Data().recentAirtime.length,
                             itemBuilder: (context, index) {
-                              var beneficiaries = [
-                                Beneficiary(
-                                    name: 'Choose beneficiary',
-                                    bank: 'uk',
-                                    accountNumber: ''),
-                              ];
-                              var recentTransactions = [];
-                              var recent = [
-                                Data().today,
-                                Data().yesterday,
-                                Data().third_data
-                              ];
-                              for (var data in recent) {
-                                recentTransactions.addAll(data);
-                              }
+                              var recentAirtime = Data().recentAirtime;
 
-                              Map data = <String, String>{
-                                "Kuda": 'assets/images/kuda.jpg',
-                                "GTBank Plc": 'assets/images/GTBank_logo.png',
-                                "United Bank of Africa":
-                                    'assets/images/acceleres.png',
+                              Map providerImages = <String, String>{
+                                "mtn": 'assets/images/kuda.jpg',
+                                "glo": 'assets/images/GTBank_logo.png',
+                                "airtel": 'assets/images/acceleres.png',
                                 "Unknown Bank": 'assets/images/unknown.png',
                                 'uk': "assets/images/resized-1.jpg"
                               };
-                              return index == 0
-                                  ? Container(
-                                      width: 55,
-                                      margin: EdgeInsets.only(left: 20),
-                                      child: Column(
-                                        // mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(70),
-                                            child: Container(
-                                                height: 50,
-                                                width: 50,
-                                                color: accentColor,
-                                                child: Icon(
-                                                    Icons
-                                                        .supervised_user_circle,
-                                                    size: 30)),
-                                          ),
-                                          SizedBox(height: 10),
-                                          Text(
-                                            beneficiaries[index].name,
-                                            maxLines: 2,
-                                            softWrap: true,
-                                            textAlign: TextAlign.center,
-                                            style: subTitleTextStyle.copyWith(
-                                              fontWeight: FontWeight.w900,
-                                            ),
-                                          )
-                                        ],
+                              return Container(
+                                margin: EdgeInsets.only(left: 20),
+                                child: Column(
+                                  // mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 70,
+                                      width: 70,
+                                      decoration: BoxDecoration(
+                                        color: Colors.brown,
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: Colors.black,
+                                          width: 2,
+                                        ),
                                       ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 8, horizontal: 10),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(35),
+                                          child: Image.asset(
+                                              providerImages[
+                                                  recentAirtime[index]
+                                                      .provider],
+                                              fit: BoxFit.fill,
+                                              height: 40,
+                                              width: 40),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 10),
+                                    Text(
+                                      '0' +
+                                          recentAirtime[index].phone.toString(),
+                                      maxLines: 2,
+                                      softWrap: true,
+                                      textAlign: TextAlign.center,
+                                      style: subTitleTextStyle.copyWith(
+                                          fontSize: 10),
                                     )
-                                  : RecentTransactionCard(
-                                      transaction:
-                                          recentTransactions[index - 1]);
+                                  ],
+                                ),
+                              );
                             },
                           ),
                         ),
@@ -233,7 +194,7 @@ class BuyAirtimeScreen extends StatelessWidget {
                       height: 15,
                     ),
                     Text(
-                      'Bank',
+                      'Network',
                       style: labelTextStyle,
                     ),
                     SizedBox(height: 3),
@@ -251,9 +212,20 @@ class BuyAirtimeScreen extends StatelessWidget {
                     SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      'Account Numbers',
-                      style: labelTextStyle,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Phone Number',
+                          style: labelTextStyle,
+                        ),
+                        Text('Choose Contact', style: GoogleFonts.muli(
+                          fontWeight: FontWeight.w600,
+                          color: primaryColor,
+                          fontSize: 14,
+                        ),),
+
+                      ],
                     ),
                     SizedBox(height: 3),
                     TextField(
@@ -272,24 +244,7 @@ class BuyAirtimeScreen extends StatelessWidget {
                     SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      'Add a Note (Optional)',
-                      style: labelTextStyle,
-                    ),
-                    SizedBox(height: 3),
-                    TextField(
-                      cursorColor: primaryColor,
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        fillColor: Colors.grey.shade200,
-                        hintText: 'What\'s this for?',
-                        hintStyle: hintTextStyle,
-                        contentPadding: EdgeInsets.all(16),
-                        filled: true,
-                        enabledBorder:
-                            OutlineInputBorder(borderSide: BorderSide.none),
-                      ),
-                    ),
+                    
                   ],
                 ),
               )

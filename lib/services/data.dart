@@ -1,6 +1,7 @@
 // this is a simulated raw data
 
 import 'package:flutter/material.dart';
+import 'package:kuda_app_clone/models/airtime.dart';
 import 'package:kuda_app_clone/models/beneficiary.dart';
 import 'package:kuda_app_clone/models/transaction.dart';
 
@@ -103,5 +104,10 @@ class Data {
       bank: 'GTBank Plc',
       accountNumber: '0408129724',
     ),
+  ];
+
+  var recentAirtime = [
+    Airtime(phone: 08108678294, provider: 'mtn'),
+    Airtime(phone: 08032030070, provider: 'glo'),
   ];
 }

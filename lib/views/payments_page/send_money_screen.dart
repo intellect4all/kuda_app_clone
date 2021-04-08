@@ -254,7 +254,7 @@ class SendMoneyScreen extends StatelessWidget {
                       height: 15,
                     ),
                     Text(
-                      'Account Numbers',
+                      'Account Number',
                       style: labelTextStyle,
                     ),
                     SizedBox(height: 3),
