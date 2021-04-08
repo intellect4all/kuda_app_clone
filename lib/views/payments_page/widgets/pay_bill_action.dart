@@ -77,7 +77,7 @@ class PayBillAction extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title.trim().toTitleCase(),
+                    title == 'TV' ? title.trim() : title.trim().toTitleCase(),
                     style: GoogleFonts.muli(
                       color: primaryColor,
                       fontWeight: FontWeight.w900,
