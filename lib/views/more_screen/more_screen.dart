@@ -13,7 +13,7 @@ class MoreScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 10),
+              margin: EdgeInsets.only(top: 15),
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: Row(
                 children: [
@@ -82,7 +82,7 @@ class MoreScreen extends StatelessWidget {
                         child: InkWell(
                           onTap: () {},
                           child: Padding(
-                            padding: const EdgeInsets.fromLTRB(22, 20, 15, 20),
+                            padding: const EdgeInsets.fromLTRB(22, 18, 15, 18),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -101,26 +101,30 @@ class MoreScreen extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(width: 15),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Odewole, Olatunde Abdul-Jemeel',
-                                      overflow: TextOverflow.ellipsis,
-                                      softWrap: true,
-                                      style: GoogleFonts.muli(
-                                        color: primaryColor,
-                                        fontWeight: FontWeight.w900,
-                                        fontSize: 16,
+                                Expanded(
+                                  flex: 8,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Odewole, Olatunde Abdul-Jemeel',
+                                        overflow: TextOverflow.ellipsis,
+                                        softWrap: null,
+                                        style: GoogleFonts.muli(
+                                          color: primaryColor,
+                                          fontWeight: FontWeight.w900,
+                                          fontSize: 16,
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(height: 7),
-                                    Text(
-                                      'Account Details',
-                                      style: subTitleTextStyle,
-                                    ),
-                                  ],
+                                      SizedBox(height: 7),
+                                      Text(
+                                        'Account Details',
+                                        style: subTitleTextStyle,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Expanded(
                                   child: SizedBox(
@@ -136,6 +140,9 @@ class MoreScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        height: 20,
                       ),
                       PaymentActionTile(
                         title: 'Statement & Reports',

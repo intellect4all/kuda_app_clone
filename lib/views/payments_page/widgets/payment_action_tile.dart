@@ -23,8 +23,9 @@ class PaymentActionTile extends StatelessWidget {
       elevation: 1,
       child: InkWell(
         onTap: action,
-        child: Padding(
+        child: Container(
           padding: const EdgeInsets.fromLTRB(22, 8, 15, 8),
+          margin: EdgeInsets.symmetric(vertical:3),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
