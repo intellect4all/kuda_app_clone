@@ -1,6 +1,6 @@
 // this is a simulated raw data
 
-import 'package:flutter/material.dart';
+
 import 'package:kuda_app_clone/models/airtime.dart';
 import 'package:kuda_app_clone/models/beneficiary.dart';
 import 'package:kuda_app_clone/models/transaction.dart';

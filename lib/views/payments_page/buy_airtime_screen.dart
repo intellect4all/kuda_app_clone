@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kuda_app_clone/models/beneficiary.dart';
+
 import 'package:kuda_app_clone/services/data.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
-import 'package:kuda_app_clone/views/components/recent_transactions_card.dart';
+
 import 'package:kuda_app_clone/views/components/standardButton.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
