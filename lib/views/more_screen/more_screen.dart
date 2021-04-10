@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
 import 'package:kuda_app_clone/views/components/standardButton.dart';
+import 'package:kuda_app_clone/views/more_screen/profile_screen.dart';
 import 'package:kuda_app_clone/views/payments_page/widgets/payment_action_tile.dart';
 
 class MoreScreen extends StatelessWidget {
@@ -80,7 +81,9 @@ class MoreScreen extends StatelessWidget {
                       Card(
                         elevation: 1,
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(() => ProfileScreen());
+                          },
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(22, 18, 15, 18),
                             child: Row(
