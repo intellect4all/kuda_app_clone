@@ -16,7 +16,7 @@ Widget getBankImageAvatar(Transaction transaction,{@required double height, @req
     String image = data[d];
     print(image);
     return ClipRRect(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(50),
         child: Image.asset(image, fit: BoxFit.fill, height: height, width: width));
   } else {
     var d = transaction.senderBank;
@@ -25,7 +25,7 @@ Widget getBankImageAvatar(Transaction transaction,{@required double height, @req
     String image = data[d];
     print(image);
     return ClipRRect(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(50),
         child: Image.asset(image, fit: BoxFit.fill, height: height, width: height));
   }
 }

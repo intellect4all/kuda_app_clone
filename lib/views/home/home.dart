@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kuda_app_clone/services/data.dart';
 import 'package:kuda_app_clone/utilities/constants.dart';
 import 'package:kuda_app_clone/views/components/return_bankImage.dart';
+import 'package:kuda_app_clone/views/home/transaction_details_screen.dart';
 
 class Home extends StatelessWidget {
   const Home({
@@ -221,70 +223,85 @@ class Home extends StatelessWidget {
                           .today
                           .map(
                             (transaction) => Container(
-                              height: 70,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 10),
-                              margin: EdgeInsets.symmetric(vertical: 1.5),
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: Colors.grey.shade100,
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    decoration: BoxDecoration(
-                                      color: accentColor,
-                                      borderRadius: BorderRadius.circular(25),
-                                    ),
-                                    child: Center(
-                                      child: getBankImageAvatar(transaction,
-                                          height: 30, width: 30),
-                                    ),
-                                  ),
-                                  SizedBox(width: 15),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        transaction.amount < 0
-                                            ? '${transaction.recipient}'
-                                            : '${transaction.sender}',
-                                        style: GoogleFonts.muli(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 13,
+                              child: Card(
+                                margin: EdgeInsets.symmetric(vertical: 1),
+                                elevation: 0,
+                                child: InkWell(
+                                  onTap: () {
+                                    Get.to(() => TransactionScreen(transaction: transaction,));
+                                  },
+                                  child: Container(
+                                    height: 70,
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 10),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          width: 45,
+                                          decoration: BoxDecoration(
+                                            color: accentColor,
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                          ),
+                                          child: Center(
+                                            child: getBankImageAvatar(
+                                                transaction,
+                                                height: 30,
+                                                width: 30),
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        '${transaction.time}',
-                                        style: subTitleTextStyle,
-                                      ),
-                                    ],
-                                  ),
-                                  Expanded(
-                                    child: SizedBox.expand(),
-                                  ),
-                                  Text(
-                                    transaction.amount < 0
-                                        ? '${transaction.amount.abs().toStringAsFixed(2)}'
-                                        : '+${transaction.amount.toStringAsFixed(2)}',
-                                    style: GoogleFonts.muli(
-                                      color: transaction.amount < 0
-                                          ? Colors.black
-                                          : Colors.green,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w900,
+                                        SizedBox(width: 15),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              transaction.amount < 0
+                                                  ? '${transaction.recipient}'
+                                                  : '${transaction.sender}',
+                                              style: GoogleFonts.muli(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Text(
+                                              '${transaction.time}',
+                                              style: subTitleTextStyle,
+                                            ),
+                                          ],
+                                        ),
+                                        Expanded(
+                                          child: SizedBox.expand(),
+                                        ),
+                                        Text(
+                                          transaction.amount < 0
+                                              ? '${transaction.amount.abs().toStringAsFixed(2)}'
+                                              : '+${transaction.amount.toStringAsFixed(2)}',
+                                          style: GoogleFonts.muli(
+                                            color: transaction.amount < 0
+                                                ? Colors.black
+                                                : Colors.green,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w900,
+                                          ),
+                                          textAlign: TextAlign.right,
+                                        ),
+                                      ],
                                     ),
-                                    textAlign: TextAlign.right,
                                   ),
-                                ],
+                                ),
                               ),
                             ),
                           )
@@ -304,74 +321,89 @@ class Home extends StatelessWidget {
                           .yesterday
                           .map(
                             (transaction) => Container(
-                              height: 70,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 10),
-                              margin: EdgeInsets.symmetric(vertical: 1.5),
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: Colors.grey.shade100,
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    decoration: BoxDecoration(
-                                      color: accentColor,
-                                      borderRadius: BorderRadius.circular(25),
-                                    ),
-                                    child: Center(
-                                      child: getBankImageAvatar(transaction,
-                                          height: 30, width: 30),
-                                    ),
-                                  ),
-                                  SizedBox(width: 15),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        transaction.amount < 0
-                                            ? '${transaction.recipient}'
-                                            : '${transaction.sender}',
-                                        style: GoogleFonts.muli(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 13,
+                              child: Card(
+                                margin: EdgeInsets.symmetric(vertical: 1),
+                                elevation: 0,
+                                child: InkWell(
+                                  onTap: () {
+                                    Get.to(() => TransactionScreen(transaction: transaction,));
+                                  },
+                                  child: Container(
+                                    height: 70,
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 10),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          width: 45,
+                                          decoration: BoxDecoration(
+                                            color: accentColor,
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                          ),
+                                          child: Center(
+                                            child: getBankImageAvatar(
+                                                transaction,
+                                                height: 30,
+                                                width: 30),
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        '${transaction.time}',
-                                        style: GoogleFonts.muli(
-                                          color: Colors.grey.shade600,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
+                                        SizedBox(width: 15),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              transaction.amount < 0
+                                                  ? '${transaction.recipient}'
+                                                  : '${transaction.sender}',
+                                              style: GoogleFonts.muli(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Text(
+                                              '${transaction.time}',
+                                              style: GoogleFonts.muli(
+                                                color: Colors.grey.shade600,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Expanded(
-                                    child: SizedBox.expand(),
-                                  ),
-                                  Text(
-                                    transaction.amount < 0
-                                        ? '${transaction.amount.abs().toStringAsFixed(2)}'
-                                        : '+${transaction.amount.toStringAsFixed(2)}',
-                                    style: GoogleFonts.muli(
-                                      color: transaction.amount < 0
-                                          ? Colors.black
-                                          : Colors.green,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w900,
+                                        Expanded(
+                                          child: SizedBox.expand(),
+                                        ),
+                                        Text(
+                                          transaction.amount < 0
+                                              ? '${transaction.amount.abs().toStringAsFixed(2)}'
+                                              : '+${transaction.amount.toStringAsFixed(2)}',
+                                          style: GoogleFonts.muli(
+                                            color: transaction.amount < 0
+                                                ? Colors.black
+                                                : Colors.green,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w900,
+                                          ),
+                                          textAlign: TextAlign.right,
+                                        ),
+                                      ],
                                     ),
-                                    textAlign: TextAlign.right,
                                   ),
-                                ],
+                                ),
                               ),
                             ),
                           )
@@ -391,74 +423,89 @@ class Home extends StatelessWidget {
                           .third_data
                           .map(
                             (transaction) => Container(
-                              height: 70,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 10),
-                              margin: EdgeInsets.symmetric(vertical: 1.5),
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: Colors.grey.shade100,
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    decoration: BoxDecoration(
-                                      color: accentColor,
-                                      borderRadius: BorderRadius.circular(25),
-                                    ),
-                                    child: Center(
-                                      child: getBankImageAvatar(transaction,
-                                          height: 30, width: 30),
-                                    ),
-                                  ),
-                                  SizedBox(width: 15),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        transaction.amount < 0
-                                            ? '${transaction.recipient}'
-                                            : '${transaction.sender}',
-                                        style: GoogleFonts.muli(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 13,
+                              child: Card(
+                                elevation: 0,
+                                margin: EdgeInsets.symmetric(vertical: 1),
+                                child: InkWell(
+                                  onTap: () {
+                                    Get.to(() => TransactionScreen(transaction: transaction,));
+                                  },
+                                  child: Container(
+                                    height: 70,
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 10),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          width: 45,
+                                          decoration: BoxDecoration(
+                                            color: accentColor,
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                          ),
+                                          child: Center(
+                                            child: getBankImageAvatar(
+                                                transaction,
+                                                height: 30,
+                                                width: 30),
+                                          ),
                                         ),
-                                      ),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        '${transaction.time}',
-                                        style: GoogleFonts.muli(
-                                          color: Colors.grey.shade600,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
+                                        SizedBox(width: 15),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              transaction.amount < 0
+                                                  ? '${transaction.recipient}'
+                                                  : '${transaction.sender}',
+                                              style: GoogleFonts.muli(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Text(
+                                              '${transaction.time}',
+                                              style: GoogleFonts.muli(
+                                                color: Colors.grey.shade600,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Expanded(
-                                    child: SizedBox.expand(),
-                                  ),
-                                  Text(
-                                    transaction.amount < 0
-                                        ? '${transaction.amount.abs().toStringAsFixed(2)}'
-                                        : '+${transaction.amount.toStringAsFixed(2)}',
-                                    style: GoogleFonts.muli(
-                                      color: transaction.amount < 0
-                                          ? Colors.black
-                                          : Colors.green,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w900,
+                                        Expanded(
+                                          child: SizedBox.expand(),
+                                        ),
+                                        Text(
+                                          transaction.amount < 0
+                                              ? '${transaction.amount.abs().toStringAsFixed(2)}'
+                                              : '+${transaction.amount.toStringAsFixed(2)}',
+                                          style: GoogleFonts.muli(
+                                            color: transaction.amount < 0
+                                                ? Colors.black
+                                                : Colors.green,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w900,
+                                          ),
+                                          textAlign: TextAlign.right,
+                                        ),
+                                      ],
                                     ),
-                                    textAlign: TextAlign.right,
                                   ),
-                                ],
+                                ),
                               ),
                             ),
                           )
