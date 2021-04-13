@@ -172,7 +172,7 @@ class TransactionScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 20),
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Column(
@@ -206,18 +206,18 @@ class TransactionScreen extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  SizedBox(height: 10),
+                                  SizedBox(height: 5),
                                   Text(
                                      transaction.amount < 0 ? 'To' : 'From',
                                     style: GoogleFonts.muli(
                                       fontSize: 11,
                                     ),
                                   ),
-                                  SizedBox(height: 3),
+                                  
                                   Text(
                                     transaction.amount < 0 ? '${transaction.recipientBank}' : '${transaction.senderBank}',
                                     style: GoogleFonts.muli(
-                                      fontSize: 18,
+                                      fontSize: 15,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -238,18 +238,18 @@ class TransactionScreen extends StatelessWidget {
                             ],
                           ),
                           Divider(color: Colors.black87, height: 20),
-                          SizedBox(height: 10),
+                          SizedBox(height: 5),
                           Text(
                             'Description',
                             style: GoogleFonts.muli(
                               fontSize: 11,
                             ),
                           ),
-                          SizedBox(height: 3),
+                          
                           Text(
                             '${transaction.description}',
                             style: GoogleFonts.muli(
-                              fontSize: 18,
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -269,11 +269,11 @@ class TransactionScreen extends StatelessWidget {
                                         fontSize: 11,
                                       ),
                                     ),
-                                    SizedBox(height: 3),
+                                    
                                     Text(
                                       transaction.amount < 0 ? 'Money Sent' : 'Money Received',
                                       style: GoogleFonts.muli(
-                                        fontSize: 18,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -291,11 +291,11 @@ class TransactionScreen extends StatelessWidget {
                                         fontSize: 11,
                                       ),
                                     ),
-                                    SizedBox(height: 3),
+                                    
                                     Text(
                                       '${transaction.fees.abs().toStringAsFixed(2)}',
                                       style: GoogleFonts.muli(
-                                        fontSize: 18,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
